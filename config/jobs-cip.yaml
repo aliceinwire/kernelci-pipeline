@@ -137,12 +137,13 @@ jobs:
     rules:
       tree:
       - 'arm64'
+      - 'cip'
       - 'next'
-      - 'sashal-next'
 
   kbuild-gcc-12-arm64-612-cip-allnoconfig:
-    <<: *kbuild-gcc-12-arm64-job
+    <<: *kbuild-gcc-12-arm64-allnoconfig-job
     params:
+      <<: *kbuild-gcc-12-arm64-params
       defconfig:
         - defconfig
       fragments:

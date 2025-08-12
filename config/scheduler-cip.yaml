@@ -118,11 +118,11 @@ scheduler:
 
   - job: kbuild-gcc-12-arm64-cip-k8s
     <<: *build-k8s-all
-
-  - job: kbuild-gcc-12-arm64-612-cip-k8s
-    <<: *build-k8s-all
   
   - job: kbuild-gcc-12-arm64-cip-allnoconfig
+    <<: *build-k8s-all
+
+  - job: kbuild-gcc-12-arm64-612-cip-k8s
     <<: *build-k8s-all
 
   - job: kbuild-gcc-12-arm64-612-cip-allnoconfig
