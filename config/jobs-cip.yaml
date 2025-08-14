@@ -12,15 +12,6 @@ _anchors:
       - '!android'
       - '!chromiumos'
 
-  kbuild-gcc-12-arm: &kbuild-gcc-12-arm-job
-    <<: *kbuild-job
-    image: ghcr.io/kernelci/{image_prefix}gcc-12:arm-kselftest-kernelci
-    params: &kbuild-gcc-12-arm-params
-      arch: arm
-      compiler: gcc-12
-      cross_compile: 'arm-linux-gnueabihf-'
-      defconfig: multi_v7_defconfig
-
   kbuild-gcc-12-arm64: &kbuild-gcc-12-arm64-job
     <<: *kbuild-job
     image: ghcr.io/kernelci/{image_prefix}gcc-12:arm64-kselftest-kernelci
@@ -33,19 +24,8 @@ _anchors:
         - 'lab-setup'
         - 'kselftest'
 
-  kbuild-gcc-12-x86: &kbuild-gcc-12-x86-job
-    <<: *kbuild-job
-    image: ghcr.io/kernelci/{image_prefix}gcc-12:x86-kselftest-kernelci
-    params: &kbuild-gcc-12-x86-params
-      arch: x86_64
-      compiler: gcc-12
-      defconfig: x86_64_defconfig
-      fragments:
-        - 'kselftest'
-
 jobs:
 #  baseline-x86-cip: *baseline-job
-  baseline-arm-cip: *baseline-job
   baseline-arm64-cip: *baseline-job
 
 # start of CIP arm64 configuration for boot tests
