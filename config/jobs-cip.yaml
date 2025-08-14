@@ -26,7 +26,7 @@ _anchors:
 
 jobs:
 #  baseline-x86-cip: *baseline-job
-  baseline-arm64-cip: *baseline-job
+  job-gcc-12-arm64-612-cip-allnoconfig: *baseline-job
 
 # start of CIP arm64 configuration for boot tests
   kbuild-gcc-12-arm64-cip-allnoconfig: &kbuild-gcc-12-arm64-allnoconfig-job
