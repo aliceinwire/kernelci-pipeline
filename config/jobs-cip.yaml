@@ -25,7 +25,6 @@ _anchors:
         - 'kselftest'
 
 jobs:
-#  baseline-x86-cip: *baseline-job
   job-gcc-12-arm64-612-cip-allnoconfig: *baseline-job
 
 # start of CIP arm64 configuration for boot tests
@@ -36,11 +35,6 @@ jobs:
       defconfig:
         - defconfig
         - allnoconfig
-    rules:
-      tree:
-      - 'arm64'
-      - 'cip'
-      - 'next'
 
   kbuild-gcc-12-arm64-612-cip-allnoconfig:
     <<: *kbuild-gcc-12-arm64-allnoconfig-job
@@ -48,6 +42,7 @@ jobs:
       <<: *kbuild-gcc-12-arm64-params
       defconfig:
         - defconfig
+        - allnoconfig
       fragments:
         - 'CONFIG_ARCH_R8A774A1=y'
         - 'CONFIG_ARCH_ZYNQMP=y'
