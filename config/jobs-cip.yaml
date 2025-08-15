@@ -34,20 +34,17 @@ jobs:
       <<: *kbuild-gcc-12-arm64-params
       defconfig:
         - defconfig
-        - allnoconfig
-
-  kbuild-gcc-12-arm64-612-cip-allnoconfig:
-    <<: *kbuild-gcc-12-arm64-allnoconfig-job
-    params:
-      <<: *kbuild-gcc-12-arm64-params
-      defconfig:
-        - defconfig
-        - allnoconfig
       fragments:
         - 'CONFIG_ARCH_R8A774A1=y'
         - 'CONFIG_ARCH_ZYNQMP=y'
         - 'kselftest'
         - 'lab-setup'
+
+  kbuild-gcc-12-arm64-612-cip-allnoconfig:
+    <<: *kbuild-gcc-12-arm64-allnoconfig-job
+    params:
+      <<: *kbuild-gcc-12-arm64-params
+      fragments:
         - 'cip://6.12.y-cip/arm64/cip_merged_defconfig'
     rules:
       branch:
